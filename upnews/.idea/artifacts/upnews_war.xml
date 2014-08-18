@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="upnews:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="parllay-wechat.war">
+      <element id="artifact" artifact-name="upnews:war exploded" />
+    </root>
+  </artifact>
+</component>
