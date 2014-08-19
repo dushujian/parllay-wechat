@@ -24,6 +24,11 @@
         <servlet-name>sendallService</servlet-name>
         <servlet-class>com.parllay.wechat.SendallServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>sendService</servlet-name>
+        <servlet-class>com.parllay.wechat.SendallServlet</servlet-class>
+    </servlet>
+
 
     <servlet-mapping>
         <servlet-name>getgroupService</servlet-name>
@@ -44,5 +49,9 @@
     <servlet-mapping>
         <servlet-name>sendallService</servlet-name>
         <url-pattern>/cgi-bin/message/mass/sendall</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>sendService</servlet-name>
+        <url-pattern>/cgi-bin/message/mass/send</url-pattern>
     </servlet-mapping>
 </web-app>
