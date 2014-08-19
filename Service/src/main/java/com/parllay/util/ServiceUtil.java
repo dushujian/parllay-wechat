@@ -1,5 +1,7 @@
 package com.parllay.util;
 
+import org.json.simple.JSONObject;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
@@ -25,5 +27,14 @@ public class ServiceUtil {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String dateString = formatter.format(currentTime);
         return dateString;
+    }
+
+    public static boolean isinexistenceKeyorNull(JSONObject jobj, String key)
+    {
+        if(!jobj.containsKey(key))
+            return true;
+        else if(jobj.get(key) == null)
+            return true;
+        return false;
     }
 }

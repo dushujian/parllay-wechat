@@ -1,5 +1,6 @@
 package com.parllay.wechat;
 
+import com.parllay.util.ServiceUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -43,17 +44,17 @@ public class GroupServlet extends HttpServlet {
             success = 0;
         }
         JSONObject group = (JSONObject)JSONValue.parse(data);
-        if(!group.containsKey("group"))
+        if(ServiceUtil.isinexistenceKeyorNull(group,"group"))
         {
             success = 0;
         }
         else
         {
             name = (JSONObject)group.get("group");
-            if(!name.containsKey("name"))
-            {
-                success = 0;
-            }
+           if(ServiceUtil.isinexistenceKeyorNull(name,"name"))
+           {
+               success = 0;
+           }
         }
 
         if (1 == success)

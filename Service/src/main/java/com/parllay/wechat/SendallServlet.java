@@ -32,7 +32,7 @@ public class SendallServlet extends HttpServlet {
         logger.info("The input parameters:" + data);
 
         JSONObject inmsg = (JSONObject) JSONValue.parse(data);
-        if(inmsg.containsKey("filter") && inmsg.containsKey("msgtype"))
+        if(inmsg.get("filter") != null && inmsg.get("msgtype") != null)
         {
             JSONObject filter = (JSONObject)inmsg.get("filter");
             if(!filter.containsKey("group_id"))
@@ -40,7 +40,22 @@ public class SendallServlet extends HttpServlet {
                 success = 0;
             }
 
-             String msgtyp = (String)inmsg.get("msgtyp");
+            String msgtyp = (String)inmsg.get("msgtyp");
+            if(inmsg.containsKey(msgtyp))
+            {
+                JSONObject msgjson = (JSONObject)inmsg.get(msgtyp);
+                for(Object obj : msgjson.keySet())
+                {
+                    if(msgjson.get(obj) == null)
+                    {
+                        success = 0;
+                    }
+                }
+            }
+            else
+            {
+                success = 0;
+            }
         }
         else
         {

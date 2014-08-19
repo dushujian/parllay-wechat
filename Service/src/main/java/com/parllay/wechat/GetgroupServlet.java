@@ -44,5 +44,6 @@ public class GetgroupServlet extends HttpServlet {
             logger.info("The output parameters:" + outmsg);
             out.print(outmsg);
         }
+        out.flush();
     }
 }

@@ -41,7 +41,7 @@ public class UpnewsServlet extends HttpServlet {
         Set<Integer> mid = new HashSet<Integer>(); //存放不重复的媒体id
         JSONObject outmsg = new JSONObject();
         JSONObject articles = (JSONObject)JSONValue.parse(data);
-        if(articles.containsKey("articles"))
+        if(!ServiceUtil.isinexistenceKeyorNull(articles,"articles"))
         {
             JSONArray array = (JSONArray) articles.get("articles");
             logger.info(array);
@@ -49,9 +49,10 @@ public class UpnewsServlet extends HttpServlet {
             if (size > 0 && size < 11) {
                 for (int i = 0; i < size; i++) {
                     JSONObject jo = (JSONObject) array.get(i);
-                    if (!jo.containsKey("thumb_media_id") ||
-                        !jo.containsKey("title") ||
-                        !jo.containsKey("content")) {
+                    if(ServiceUtil.isinexistenceKeyorNull(jo,"thumb_media_id")||
+                       ServiceUtil.isinexistenceKeyorNull(jo,"title") ||
+                       ServiceUtil.isinexistenceKeyorNull(jo,"content"))
+                    {
                          success = 0;
                     }
                 }
