@@ -22,8 +22,8 @@ import java.util.Set;
  * Created by dushujian on 14-8-17.
  */
 
-public class ServiceServlet extends HttpServlet {
-    Logger logger = Logger.getLogger(ServiceServlet.class);
+public class UpnewsServlet extends HttpServlet {
+    Logger logger = Logger.getLogger(UpnewsServlet.class);
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

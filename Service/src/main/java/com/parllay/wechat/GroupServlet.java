@@ -1,25 +1,26 @@
 package com.parllay.wechat;
+
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.PropertyConfigurator;
 import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
-import java.io.BufferedReader;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.Random;
 
 /**
  * Created by dushujian on 14-8-18.
  */
-public class ServiceServlet extends HttpServlet {
-    Logger logger = Logger.getLogger(ServiceServlet.class);
+public class GroupServlet extends HttpServlet {
+    Logger logger = Logger.getLogger(GroupServlet.class);
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
