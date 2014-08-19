@@ -43,20 +43,30 @@ public class SendallServlet extends HttpServlet {
                 success = 0;
             }
             String msgtype = (String)inmsg.get("msgtype");
-            if(!ServiceUtil.isinexistenceKeyorNull(inmsg,msgtype))
+            if(msgtype.equals("mpnews")||
+                    msgtype.equals("voice")||
+                    msgtype.equals("image")||
+                    msgtype.equals("mpvideo"))
             {
                 JSONObject msgjson = (JSONObject)inmsg.get(msgtype);
-                for(Object obj : msgjson.keySet())
+                if(ServiceUtil.isinexistenceKeyorNull(msgjson,"media_id"))
                 {
-                    if(ServiceUtil.isinexistenceKeyorNull(msgjson,obj.toString()))
-                    {
-                        success = 0;
-                    }
+                    success = 0;
+                }
+            }
+
+            else if(msgtype.equals("text"))
+            {
+                JSONObject msgjson = (JSONObject)inmsg.get(msgtype);
+                if(ServiceUtil.isinexistenceKeyorNull(msgjson,"content"))
+                {
+                    success = 0;
                 }
             }
             else
             {
                 success = 0;
+                logger.info("msgtype illegal!");
             }
         }
         else
