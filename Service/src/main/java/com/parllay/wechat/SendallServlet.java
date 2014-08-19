@@ -42,9 +42,7 @@ public class SendallServlet extends HttpServlet {
             {
                 success = 0;
             }
-            logger.info(success);
             String msgtype = (String)inmsg.get("msgtype");
-            logger.info(msgtype);
             if(!ServiceUtil.isinexistenceKeyorNull(inmsg,msgtype))
             {
                 JSONObject msgjson = (JSONObject)inmsg.get(msgtype);
@@ -54,20 +52,17 @@ public class SendallServlet extends HttpServlet {
                     {
                         success = 0;
                     }
-                    logger.info(success);
                 }
             }
             else
             {
                 success = 0;
             }
-            logger.info(success);
         }
         else
         {
             success = 0;
         }
-        logger.info(success);
         if(1 == success)
         {
             outmsg.put("errcode", 0);
