@@ -83,7 +83,7 @@ public class SendallServlet extends HttpServlet {
         }
         else
         {
-            logger.info("The parameter passed is not complete！");
+            logger.info("The parameter passed is not complete or illegal！");
             outmsg.put("errcode", 40004);
             outmsg.put("errmsg","invalid media type");
             logger.info("The output parameters:" + outmsg);
