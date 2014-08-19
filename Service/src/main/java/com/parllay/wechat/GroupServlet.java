@@ -72,5 +72,6 @@ public class GroupServlet extends HttpServlet {
             logger.info("The output parameters:" + outmsg);
             out.print(outmsg);
         }
+        out.flush();
     }
 }
