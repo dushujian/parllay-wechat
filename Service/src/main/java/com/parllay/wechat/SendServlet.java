@@ -31,26 +31,20 @@ public class SendServlet extends HttpServlet {
         String data = br.readLine();
         br.close();
         int success = 1; //标志参数是否传递正确
-        logger.info(success);
         logger.info("The input parameters:" + data);
-        logger.info(success);
-
         JSONObject inmsg = (JSONObject) JSONValue.parse(data);
         JSONObject outmsg = new JSONObject();
-
         if(ServiceUtil.isinexistenceKeyorNull(inmsg,"touser")||
                 ServiceUtil.isinexistenceKeyorNull(inmsg,"msgtype"))
         {
             success = 0;
-            logger.info(success);
         }
         else
         {
-             String msgtype = (String)inmsg.get("msgtype");
+            String msgtype = (String)inmsg.get("msgtype");
             if(ServiceUtil.isinexistenceKeyorNull(inmsg,msgtype))
             {
                 success = 0;
-                logger.info(success);
             }
             else
             {
@@ -63,7 +57,6 @@ public class SendServlet extends HttpServlet {
                     if(ServiceUtil.isinexistenceKeyorNull(msgjson,"media_id"))
                     {
                         success = 0;
-                        logger.info(success);
                     }
                 }
                 else if(msgtype.equals("text"))
@@ -72,7 +65,6 @@ public class SendServlet extends HttpServlet {
                     if(ServiceUtil.isinexistenceKeyorNull(msgjson,"content"))
                     {
                         success = 0;
-                        logger.info(success);
                     }
                 }
                 else
