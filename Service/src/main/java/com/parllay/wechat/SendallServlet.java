@@ -1,5 +1,6 @@
 package com.parllay.wechat;
 
+import com.parllay.util.ServiceUtil;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.json.simple.JSONObject;
@@ -32,35 +33,57 @@ public class SendallServlet extends HttpServlet {
         logger.info("The input parameters:" + data);
 
         JSONObject inmsg = (JSONObject) JSONValue.parse(data);
-        if(inmsg.get("filter") != null && inmsg.get("msgtype") != null)
+        JSONObject outmsg = new JSONObject();
+        if(!ServiceUtil.isinexistenceKeyorNull(inmsg,"filter") &&
+           !ServiceUtil.isinexistenceKeyorNull(inmsg,"msgtype"))
         {
             JSONObject filter = (JSONObject)inmsg.get("filter");
-            if(!filter.containsKey("group_id"))
+            if(ServiceUtil.isinexistenceKeyorNull(filter,"group_id"))
             {
                 success = 0;
             }
-
-            String msgtyp = (String)inmsg.get("msgtyp");
-            if(inmsg.containsKey(msgtyp))
+            logger.info(success);
+            String msgtype = (String)inmsg.get("msgtype");
+            logger.info(msgtype);
+            if(!ServiceUtil.isinexistenceKeyorNull(inmsg,msgtype))
             {
-                JSONObject msgjson = (JSONObject)inmsg.get(msgtyp);
+                JSONObject msgjson = (JSONObject)inmsg.get(msgtype);
                 for(Object obj : msgjson.keySet())
                 {
-                    if(msgjson.get(obj) == null)
+                    if(ServiceUtil.isinexistenceKeyorNull(msgjson,obj.toString()))
                     {
                         success = 0;
                     }
+                    logger.info(success);
                 }
             }
             else
             {
                 success = 0;
             }
+            logger.info(success);
         }
         else
         {
             success = 0;
         }
-
+        logger.info(success);
+        if(1 == success)
+        {
+            outmsg.put("errcode", 0);
+            outmsg.put("errmsg", "send job submission success");
+            outmsg.put("msg_id", 34182);
+            logger.info("The output parameters:" + outmsg);
+            out.print(outmsg);
+        }
+        else
+        {
+            logger.info("The parameter passed is not complete！");
+            outmsg.put("errcode", 40004);
+            outmsg.put("errmsg","invalid media type");
+            logger.info("The output parameters:" + outmsg);
+            out.print(outmsg);
+        }
+        out.flush();
     }
 }
