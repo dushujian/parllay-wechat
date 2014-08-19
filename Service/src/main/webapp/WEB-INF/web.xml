@@ -1,0 +1,48 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+    <servlet>
+        <servlet-name>getgroupService</servlet-name>
+        <servlet-class>com.parllay.wechat.GetgroupServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>groupService</servlet-name>
+        <servlet-class>com.parllay.wechat.GroupServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>uploadService</servlet-name>
+        <servlet-class>com.parllay.wechat.UploadServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>upnewsService</servlet-name>
+        <servlet-class>com.parllay.wechat.UpnewsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>sendallService</servlet-name>
+        <servlet-class>com.parllay.wechat.SendallServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>getgroupService</servlet-name>
+        <url-pattern>/cgi-bin/groups/get</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>groupService</servlet-name>
+        <url-pattern>/cgi-bin/groups/create</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>uploadService</servlet-name>
+        <url-pattern>/cgi-bin/media/upload</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>upnewsService</servlet-name>
+        <url-pattern>/cgi-bin/media/uploadnews</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>sendallService</servlet-name>
+        <url-pattern>/cgi-bin/message/mass/sendall</url-pattern>
+    </servlet-mapping>
+</web-app>
