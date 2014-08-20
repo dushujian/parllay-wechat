@@ -28,6 +28,14 @@
         <servlet-name>sendService</servlet-name>
         <servlet-class>com.parllay.wechat.SendServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CreateMenueServlet</servlet-name>
+        <servlet-class>com.parllay.wechat.CreateMenuServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetmenuServlet</servlet-name>
+        <servlet-class>com.parllay.wechat.GetmenuServlet</servlet-class>
+    </servlet>
 
 
     <servlet-mapping>
@@ -53,5 +61,13 @@
     <servlet-mapping>
         <servlet-name>sendService</servlet-name>
         <url-pattern>/cgi-bin/message/mass/send</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateMenueServlet</servlet-name>
+        <url-pattern>/cgi-bin/menu/create</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetmenuServlet</servlet-name>
+        <url-pattern>/cgi-bin/menu/get</url-pattern>
     </servlet-mapping>
 </web-app>
