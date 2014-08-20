@@ -39,7 +39,7 @@ public class CreateMenuServlet extends HttpServlet
         if (ServiceUtil.isinexistenceKeyorNull(inmsg,"button"))
         {
             success = 0;
-            logger.info("no button param!");
+            logger.error("no button param!");
         }
         else
         {
@@ -52,6 +52,7 @@ public class CreateMenuServlet extends HttpServlet
                     if (ServiceUtil.isinexistenceKeyorNull(button,"name"))
                     {
                         success = 0;
+                        logger.error("no button name param");
                     }
                     if (button.containsKey("sub_button"))
                     {
@@ -70,6 +71,7 @@ public class CreateMenuServlet extends HttpServlet
                                         if (ServiceUtil.isinexistenceKeyorNull(sub_button,"key"))
                                         {
                                             success = 0;
+                                            logger.error("type is click but no key param");
                                         }
                                     }
                                     else if(type.equals("view"))
@@ -77,6 +79,7 @@ public class CreateMenuServlet extends HttpServlet
                                         if (ServiceUtil.isinexistenceKeyorNull(sub_button,"url"))
                                         {
                                             success = 0;
+                                            logger.error("type is view but no url param");
                                         }
                                     }
                                 }
@@ -85,12 +88,13 @@ public class CreateMenuServlet extends HttpServlet
                         else
                         {
                             success = 0;
-                            logger.info("sub_button out of boundary!");
+                            logger.error("sub_button out of boundary!");
                         }
                     }
                     else if(ServiceUtil.isinexistenceKeyorNull(button,"type"))
                     {
                         success = 0;
+                        logger.error("no type param");
                     }
                     else
                     {
@@ -100,6 +104,7 @@ public class CreateMenuServlet extends HttpServlet
                             if (ServiceUtil.isinexistenceKeyorNull(button,"key"))
                             {
                                 success = 0;
+                                logger.error("type is click but no key param");
                             }
                         }
                         else if(type.equals("view"))
@@ -107,6 +112,7 @@ public class CreateMenuServlet extends HttpServlet
                             if (ServiceUtil.isinexistenceKeyorNull(button,"url"))
                             {
                                 success = 0;
+                                logger.error("type is view but no url param");
                             }
                         }
                     }
