@@ -39,6 +39,7 @@ public class GetgroupServlet extends HttpServlet {
         }
         else
         {
+            logger.error("no param access_token");
             outmsg.put("errcode", 40013);
             outmsg.put("errmsg", "invalid appid");
             logger.info("The output parameters:" + outmsg);

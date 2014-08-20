@@ -42,6 +42,7 @@ public class SendallServlet extends HttpServlet {
             if(ServiceUtil.isinexistenceKeyorNull(filter,"group_id"))
             {
                 success = 0;
+                logger.error("no param group_id");
             }
             String msgtype = (String)inmsg.get("msgtype");
             if(msgtype.equals("mpnews")||
@@ -53,6 +54,7 @@ public class SendallServlet extends HttpServlet {
                 if(ServiceUtil.isinexistenceKeyorNull(msgjson,"media_id"))
                 {
                     success = 0;
+                    logger.error("no param media_id");
                 }
             }
 
@@ -62,17 +64,19 @@ public class SendallServlet extends HttpServlet {
                 if(ServiceUtil.isinexistenceKeyorNull(msgjson,"content"))
                 {
                     success = 0;
+                    logger.error("no param content");
                 }
             }
             else
             {
                 success = 0;
-                logger.info("msgtype illegal!");
+                logger.error("msgtype illegal!");
             }
         }
         else
         {
             success = 0;
+            logger.error("no param filter or msgtype");
         }
         if(1 == success)
         {

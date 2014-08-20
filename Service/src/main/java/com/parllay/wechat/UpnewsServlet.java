@@ -54,14 +54,21 @@ public class UpnewsServlet extends HttpServlet {
                        ServiceUtil.isinexistenceKeyorNull(jo,"content"))
                     {
                          success = 0;
+                        logger.error("The parameter passed is not complete(thumb_media_id,title,content)！");
                     }
                 }
             }
             else
+            {
                 success =0;
+                logger.error("articles out of boundary!");
+            }
         }
         else
+        {
             success = 0;
+            logger.error("no param articles");
+        }
         if (1 == success)
         {
             outmsg.put("created_at", ServiceUtil.getStringDateShort());
@@ -71,7 +78,6 @@ public class UpnewsServlet extends HttpServlet {
             out.print(outmsg);
         }
         else {
-            logger.info("The parameter passed is not complete！");
             outmsg.put("errcode", 40004);
             outmsg.put("errmsg", "invalid media type");
             logger.info("The output parameters:" + outmsg);

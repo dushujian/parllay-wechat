@@ -43,11 +43,13 @@ public class GroupServlet extends HttpServlet {
         if(StringUtils.isEmpty(req.getParameter("access_token")))
         {
             success = 0;
+            logger.error("no param access_token");
         }
         JSONObject group = (JSONObject)JSONValue.parse(data);
         if(ServiceUtil.isinexistenceKeyorNull(group,"group"))
         {
             success = 0;
+            logger.error("no param group");
         }
         else
         {
@@ -55,6 +57,7 @@ public class GroupServlet extends HttpServlet {
            if(ServiceUtil.isinexistenceKeyorNull(name,"name"))
            {
                success = 0;
+               logger.error("no param name");
            }
         }
 
