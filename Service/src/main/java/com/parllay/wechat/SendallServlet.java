@@ -83,8 +83,8 @@ public class SendallServlet extends HttpServlet {
             outmsg.put("errmsg", "send job submission success");
             outmsg.put("msg_id", 34182);
             logger.info("The output parameters:" + outmsg);
-            out.print(outmsg);
-//            resp.sendRedirect("url?messages=" + ServiceUtil.sendResult());
+            out.println(outmsg);
+            out.print(ServiceUtil.sendResult());
         }
         else
         {

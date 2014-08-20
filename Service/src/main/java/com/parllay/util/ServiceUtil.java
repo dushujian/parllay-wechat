@@ -37,4 +37,23 @@ public class ServiceUtil {
             return true;
         return false;
     }
+
+    public static String sendResult()
+    {
+        StringBuffer result = new StringBuffer();
+        result.append("<xml>\n" +
+                "<ToUserName><![CDATA[gh_3e8adccde292]]></ToUserName>\n" +
+                "<FromUserName><![CDATA[oR5Gjjl_eiZoUpGozMo7dbBJ362A]]></FromUserName>\n" +
+                "<CreateTime>1394524295</CreateTime>\n" +
+                "<MsgType><![CDATA[event]]></MsgType>\n" +
+                "<Event><![CDATA[MASSSENDJOBFINISH]]></Event>\n" +
+                "<MsgID>1988</MsgID>\n" +
+                "<Status><![CDATA[sendsuccess]]></Status>\n" +
+                "<TotalCount>100</TotalCount>\n" +
+                "<FilterCount>80</FilterCount>\n" +
+                "<SentCount>75</SentCount>\n" +
+                "<ErrorCount>5</ErrorCount>\n" +
+                "</xml>");
+        return result.toString();
+    }
 }
