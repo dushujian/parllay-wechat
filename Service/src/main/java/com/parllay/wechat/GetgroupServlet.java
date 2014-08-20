@@ -21,7 +21,6 @@ public class GetgroupServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;charset=UTF-8");
         PrintWriter out = resp.getWriter();
-        PropertyConfigurator.configure("/home/dushujian/Desktop/parllay-wechat/Service/config/log4j.properties");
         logger.info(req.getRequestURL());
 
         JSONObject childoutmsg = new JSONObject();

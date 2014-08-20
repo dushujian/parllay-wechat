@@ -26,7 +26,6 @@ public class SendServlet extends HttpServlet {
     {
         resp.setContentType("text/html;charset=UTF-8");
         PrintWriter out = resp.getWriter();
-        PropertyConfigurator.configure("/home/dushujian/Desktop/parllay-wechat/Service/config/log4j.properties");
         logger.info(req.getRequestURL());
         BufferedReader br = new BufferedReader(new InputStreamReader(req.getInputStream()));
         String data = br.readLine();

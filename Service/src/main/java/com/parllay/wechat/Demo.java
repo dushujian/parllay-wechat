@@ -46,7 +46,6 @@ public class Demo {
         while((line = rd.readLine()) != null) {
             System.out.println(line);
         }
-        System.out.println(ServiceUtil.sendResult());
         rd.close();
 
     }
