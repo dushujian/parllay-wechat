@@ -26,7 +26,7 @@
     </servlet>
     <servlet>
         <servlet-name>sendService</servlet-name>
-        <servlet-class>com.parllay.wechat.SendallServlet</servlet-class>
+        <servlet-class>com.parllay.wechat.SendServlet</servlet-class>
     </servlet>
 
 
