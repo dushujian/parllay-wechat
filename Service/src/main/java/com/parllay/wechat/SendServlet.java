@@ -6,6 +6,7 @@ import org.apache.log4j.PropertyConfigurator;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -82,6 +83,7 @@ public class SendServlet extends HttpServlet {
             outmsg.put("msg_id", 34182);
             logger.info("The output parameters:" + outmsg);
             out.print(outmsg);
+//            resp.sendRedirect("url?messages=" + ServiceUtil.sendResult());
         }
         else
         {
