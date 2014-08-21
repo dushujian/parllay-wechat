@@ -6,16 +6,16 @@
 
     <groupId>com.parllay</groupId>
     <artifactId>parllay-wechat</artifactId>
-    <packaging>war</packaging>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
 
     <modules>
         <module>getgroup</module>
         <module>group</module>
-        <module>sendall</module>
         <module>upnews</module>
         <module>upload</module>
+        <module>Service</module>
     </modules>
 
 </project>
