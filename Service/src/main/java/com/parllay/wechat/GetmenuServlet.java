@@ -2,6 +2,7 @@ package com.parllay.wechat;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.json.simple.JSONObject;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,12 +22,25 @@ public class GetmenuServlet extends HttpServlet {
         resp.setContentType("text/html;charset=UTF-8");
         PrintWriter out = resp.getWriter();
         logger.info(req.getRequestURL());
-        out.print("{\"button\":[{\"type\":\"click\",\"name\":\"今日歌曲\",\"key\":\"V1001_TODAY_MUSIC\"}," +
-                "{\"type\":\"click\",\"name\":\"歌手简介\",\"key\":\"V1001_TODAY_SINGER\"}," +
-                "{\"name\":\"菜单\",\"sub_button\":[" +
-                "{\"type\":\"view\",\"name\":\"搜索\",\"url\":\"http://www.soso.com/\"}," +
-                "{\"type\":\"view\",\"name\":\"视频\",\"url\":\"http://v.qq.com/\"}," +
-                "{\"type\":\"click\",\"name\":\"赞一下我们\",\"key\":\"V1001_GOOD\"}]}]}");
+        JSONObject outmsg = new JSONObject();
+        if(req.getParameter("access_token") == null)
+        {
+            logger.error("no access_token param");
+            outmsg.put("errcode", 40013);
+            outmsg.put("errmsg", "invalid appid");
+            logger.info("The output parameters:" + outmsg);
+            out.print(outmsg);
+        }
+        else
+        {
+            out.print("{\"button\":[{\"type\":\"click\",\"name\":\"今日歌曲\",\"key\":\"V1001_TODAY_MUSIC\"}," +
+                    "{\"type\":\"click\",\"name\":\"歌手简介\",\"key\":\"V1001_TODAY_SINGER\"}," +
+                    "{\"name\":\"菜单\",\"sub_button\":[" +
+                    "{\"type\":\"view\",\"name\":\"搜索\",\"url\":\"http://www.soso.com/\"}," +
+                    "{\"type\":\"view\",\"name\":\"视频\",\"url\":\"http://v.qq.com/\"}," +
+                    "{\"type\":\"click\",\"name\":\"赞一下我们\",\"key\":\"V1001_GOOD\"}]}]}");
+            logger.info("success!");
+        }
         out.flush();
         out.close();
     }

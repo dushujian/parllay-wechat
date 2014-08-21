@@ -34,6 +34,11 @@ public class SendServlet extends HttpServlet {
         logger.info("The input parameters:" + data);
         JSONObject inmsg = (JSONObject) JSONValue.parse(data);
         JSONObject outmsg = new JSONObject();
+        if(req.getParameter("access_token") == null)
+        {
+            success = 0;
+            logger.error("no access_token param");
+        }
         if(ServiceUtil.isinexistenceKeyorNull(inmsg,"touser")||
                 ServiceUtil.isinexistenceKeyorNull(inmsg,"msgtype"))
         {

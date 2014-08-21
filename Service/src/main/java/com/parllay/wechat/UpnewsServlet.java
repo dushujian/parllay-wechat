@@ -40,6 +40,11 @@ public class UpnewsServlet extends HttpServlet {
         Set<Integer> mid = new HashSet<Integer>(); //存放不重复的媒体id
         JSONObject outmsg = new JSONObject();
         JSONObject articles = (JSONObject)JSONValue.parse(data);
+        if(req.getParameter("access_token") == null)
+        {
+            success = 0;
+            logger.error("no access_token param");
+        }
         if(!ServiceUtil.isinexistenceKeyorNull(articles,"articles"))
         {
             JSONArray array = (JSONArray) articles.get("articles");

@@ -34,7 +34,11 @@ public class CreateMenuServlet extends HttpServlet
 
         JSONObject outmsg = new JSONObject();
         JSONObject inmsg = (JSONObject) JSONValue.parse(data);
-
+        if(req.getParameter("access_token") == null)
+        {
+            success = 0;
+            logger.error("no access_token param");
+        }
         if (ServiceUtil.isinexistenceKeyorNull(inmsg,"button"))
         {
             success = 0;
