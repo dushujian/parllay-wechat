@@ -36,38 +36,46 @@
         <servlet-name>GetmenuServlet</servlet-name>
         <servlet-class>com.parllay.wechat.GetmenuServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SendResultServlet</servlet-name>
+        <servlet-class>com.parllay.wechat.SendResultServlet</servlet-class>
+    </servlet>
 
 
     <servlet-mapping>
         <servlet-name>getgroupService</servlet-name>
-        <url-pattern>/cgi-bin/groups/get</url-pattern>
+        <url-pattern>/groups/get</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>groupService</servlet-name>
-        <url-pattern>/cgi-bin/groups/create</url-pattern>
+        <url-pattern>/groups/create</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>uploadService</servlet-name>
-        <url-pattern>/cgi-bin/media/upload</url-pattern>
+        <url-pattern>/media/upload</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>upnewsService</servlet-name>
-        <url-pattern>/cgi-bin/media/uploadnews</url-pattern>
+        <url-pattern>/media/uploadnews</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>sendallService</servlet-name>
-        <url-pattern>/cgi-bin/message/mass/sendall</url-pattern>
+        <url-pattern>/message/mass/sendall</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>sendService</servlet-name>
-        <url-pattern>/cgi-bin/message/mass/send</url-pattern>
+        <url-pattern>/message/mass/send</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CreateMenueServlet</servlet-name>
-        <url-pattern>/cgi-bin/menu/create</url-pattern>
+        <url-pattern>/menu/create</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>GetmenuServlet</servlet-name>
-        <url-pattern>/cgi-bin/menu/get</url-pattern>
+        <url-pattern>/menu/get</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SendResultServlet</servlet-name>
+        <url-pattern>/menu/getsendresult</url-pattern>
     </servlet-mapping>
 </web-app>
