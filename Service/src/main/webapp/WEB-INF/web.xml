@@ -76,6 +76,6 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SendResultServlet</servlet-name>
-        <url-pattern>/menu/getsendresult</url-pattern>
+        <url-pattern>/getsendresult</url-pattern>
     </servlet-mapping>
 </web-app>
