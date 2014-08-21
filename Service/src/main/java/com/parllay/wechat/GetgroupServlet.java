@@ -45,5 +45,6 @@ public class GetgroupServlet extends HttpServlet {
             out.print(outmsg);
         }
         out.flush();
+        out.close();
     }
 }

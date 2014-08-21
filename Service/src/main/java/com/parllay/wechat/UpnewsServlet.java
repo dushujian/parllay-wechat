@@ -83,5 +83,6 @@ public class UpnewsServlet extends HttpServlet {
             out.print(outmsg);
         }
         out.flush();
+        out.close();
     }
 }

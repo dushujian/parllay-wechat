@@ -139,5 +139,6 @@ public class CreateMenuServlet extends HttpServlet
             out.print(outmsg);
         }
         out.flush();
+        out.close();
     }
 }

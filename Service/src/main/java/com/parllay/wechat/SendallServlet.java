@@ -94,5 +94,6 @@ public class SendallServlet extends HttpServlet {
             out.print(outmsg);
         }
         out.flush();
+        out.close();
     }
 }

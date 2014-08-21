@@ -22,5 +22,6 @@ public class SendResultServlet extends HttpServlet {
         PrintWriter out = resp.getWriter();
         out.print(ServiceUtil.sendResult());
         out.flush();
+        out.close();
     }
 }

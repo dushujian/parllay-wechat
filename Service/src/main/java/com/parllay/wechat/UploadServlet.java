@@ -59,6 +59,6 @@ public class UploadServlet extends HttpServlet {
         }
 
         out.flush();
-
+        out.close();
     }
 }
