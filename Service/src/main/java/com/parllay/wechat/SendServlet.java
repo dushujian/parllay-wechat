@@ -74,7 +74,6 @@ public class SendServlet extends HttpServlet {
                 }
             }
         }
-        logger.info(success);
         if(1 == success)
         {
             outmsg.put("errcode", 0);
