@@ -46,7 +46,7 @@ public class TimingSend  {
 
     public static void main(String[] args) {
         Timer timer = new Timer();
-        timer.schedule(new MyTask(),0,3000);// 在1秒后执行此任务
+        timer.schedule(new MyTask(),0,60*60*1000);// 每1小时执行此任务
     }
 
 }
