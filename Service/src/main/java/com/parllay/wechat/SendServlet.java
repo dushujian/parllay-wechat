@@ -82,7 +82,6 @@ public class SendServlet extends HttpServlet {
             outmsg.put("msg_id", 34182);
             logger.info("The output parameters:" + outmsg);
             out.print(outmsg);
-            out.print(ServiceUtil.sendResult());
         }
         else
         {
