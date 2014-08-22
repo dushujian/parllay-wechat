@@ -1,4 +1,5 @@
 package com.parllay.client;
+
 import com.parllay.util.ClientUtil;
 
 import java.io.BufferedReader;
@@ -9,20 +10,22 @@ import java.net.URL;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Timer;
+
 /**
- * Created by dushujian on 14-8-20.
+ * Created by dushujian on 14-8-22.
  */
-public class TimingSendNormal {
+public class TimingSendEvent {
     static class MyTask extends java.util.TimerTask {
         public void run() {
             Set<Integer> mid = new HashSet<Integer>(); //存放不重复的媒体id
             System.out.println("开始");
-            String param = ClientUtil.normalMsgs(6, "text", mid) +
-                    ClientUtil.normalMsgs(5, "image", mid) +
-                    ClientUtil.normalMsgs(4, "voice", mid) +
-                    ClientUtil.normalMsgs(3, "video", mid) +
-                    ClientUtil.normalMsgs(2, "location", mid) +
-                    ClientUtil.normalMsgs(1, "link", mid);
+            String param = ClientUtil.eventMsgs(5,"subscribe") +
+                    ClientUtil.eventMsgs(1,"unsubscribe") +
+                    ClientUtil.eventMsgs(4,"scan") +
+                    ClientUtil.eventMsgs(1,"scanUnsub") +
+                    ClientUtil.eventMsgs(3,"location") +
+                    ClientUtil.eventMsgs(2,"click") +
+                    ClientUtil.eventMsgs(1,"view");
             System.out.println(param);
             try {
                 URL url = new URL("http://localhost:8080/wechat-simulator/menu/create");
@@ -58,6 +61,4 @@ public class TimingSendNormal {
         Timer timer = new Timer();
         timer.schedule(new MyTask(),0,60*60*1000);// 每1小时执行此任务
     }
-
 }
-

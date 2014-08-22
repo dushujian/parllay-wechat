@@ -5,7 +5,7 @@ import com.parllay.util.ClientUtil;
 /**
  * Created by dushujian on 14-8-22.
  */
-public class Message {
+public class NormalMessage {
     public static String textMsg(int msgId){
         return  " <xml>\n" +
                 " <ToUserName><![CDATA[toUser]]></ToUserName>\n" +

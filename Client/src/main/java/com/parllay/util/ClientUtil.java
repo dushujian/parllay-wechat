@@ -1,7 +1,8 @@
 package com.parllay.util;
 
 
-import com.parllay.client.Message;
+import com.parllay.client.EventMessage;
+import com.parllay.client.NormalMessage;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -25,15 +26,15 @@ public class ClientUtil {
         return  i;
     }
 
-    //产生指定数量的消息
-    public  static String msgs(int num, String type,Set mid)
+    //产生指定数量的普通消息
+    public  static String normalMsgs(int num, String type, Set mid)
     {
-        StringBuilder mes = new StringBuilder();
+        StringBuilder nmes = new StringBuilder();
         if(type.equals("text"))
         {
             for(int i = 0; i < num; i++)
             {
-                mes.append(Message.textMsg(RandomNum(mid)));
+                nmes.append(NormalMessage.textMsg(RandomNum(mid)));
             }
         }
 
@@ -41,7 +42,7 @@ public class ClientUtil {
         {
             for(int i = 0; i < num; i++)
             {
-                mes.append(Message.imgMsg(RandomNum(mid)));
+                nmes.append(NormalMessage.imgMsg(RandomNum(mid)));
             }
         }
 
@@ -49,7 +50,7 @@ public class ClientUtil {
         {
             for(int i = 0; i < num; i++)
             {
-                mes.append(Message.voiceMsg(RandomNum(mid)));
+                nmes.append(NormalMessage.voiceMsg(RandomNum(mid)));
             }
         }
 
@@ -57,7 +58,7 @@ public class ClientUtil {
         {
             for(int i = 0; i < num; i++)
             {
-                mes.append(Message.videoMsg(RandomNum(mid)));
+                nmes.append(NormalMessage.videoMsg(RandomNum(mid)));
             }
         }
 
@@ -65,7 +66,7 @@ public class ClientUtil {
         {
             for(int i = 0; i < num; i++)
             {
-                mes.append(Message.locationMsg(RandomNum(mid)));
+                nmes.append(NormalMessage.locationMsg(RandomNum(mid)));
             }
         }
 
@@ -73,12 +74,67 @@ public class ClientUtil {
         {
             for(int i = 0; i < num; i++)
             {
-                mes.append(Message.linkMsg(RandomNum(mid)));
+                nmes.append(NormalMessage.linkMsg(RandomNum(mid)));
             }
         }
 
-        return mes.toString();
+        return nmes.toString();
 
+    }
+    //产生指定数量的事件消息
+    public  static String eventMsgs(int num, String type)
+    {
+        StringBuilder emes = new StringBuilder();
+        if(type.equals("subscribe"))
+        {
+            for(int i = 0; i < num; i++)
+            {
+                emes.append(EventMessage.subscribe());
+            }
+        }
+        if(type.equals("unsubscribe"))
+        {
+            for(int i = 0; i < num; i++)
+            {
+                emes.append(EventMessage.unsubscribe());
+            }
+        }
+        if(type.equals("scanUnsub"))
+        {
+            for(int i = 0; i < num; i++)
+            {
+                emes.append(EventMessage.scanUnsub());
+            }
+        }
+        if(type.equals("scan"))
+        {
+            for(int i = 0; i < num; i++)
+            {
+                emes.append(EventMessage.scan());
+            }
+        }
+        if(type.equals("location"))
+        {
+            for(int i = 0; i < num; i++)
+            {
+                emes.append(EventMessage.location());
+            }
+        }
+        if(type.equals("click"))
+        {
+            for(int i = 0; i < num; i++)
+            {
+                emes.append(EventMessage.click());
+            }
+        }
+        if(type.equals("view"))
+        {
+            for(int i = 0; i < num; i++)
+            {
+                emes.append(EventMessage.view());
+            }
+        }
+        return emes.toString();
     }
     //当前时间
     public static String getStringDateShort() {
