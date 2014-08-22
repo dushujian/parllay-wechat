@@ -14,7 +14,7 @@ public class Message {
                 " <MsgType><![CDATA[text]]></MsgType>\n" +
                 " <Content><![CDATA[this is a test]]></Content>\n" +
                 " <MsgId>"+msgId+"</MsgId>\n" +
-                " </xml>";
+                " </xml>\n";
     }
     public  static  String imgMsg(int msgId)
     {

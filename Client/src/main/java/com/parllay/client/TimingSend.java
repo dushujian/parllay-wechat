@@ -1,9 +1,13 @@
 package com.parllay.client;
+import com.parllay.util.ClientUtil;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Timer;
 /**
  * Created by dushujian on 14-8-20.
@@ -11,9 +15,15 @@ import java.util.Timer;
 public class TimingSend  {
     static class MyTask extends java.util.TimerTask {
         public void run() {
+            Set<Integer> mid = new HashSet<Integer>(); //存放不重复的媒体id
             System.out.println("开始");
-            String param = "{\"button\":[{\"type\":\"click\",\"name\":\"今日歌曲\",\"key\":\"V1001_TODAY_MUSIC\"},{\"type\":\"click\",\"name\":\"歌手简介\",\"key\":\"V1001_TODAY_SINGER\"},{\"name\":\"菜单\",\"sub_button\":[{\"type\":\"view\",\"name\":\"搜索\",\"url\":\"http://www.soso.com/\"},{\"type\":\"view\",\"name\":\"视频\",\"url\":\"http://v.qq.com/\"},{\"type\":\"click\",\"name\":\"赞一下我们\",\"key\":\"V1001_GOOD\"}]}]}";;
-
+            String param = ClientUtil.msgs(6,"text",mid) +
+                    ClientUtil.msgs(5,"image",mid) +
+                    ClientUtil.msgs(4,"voice",mid) +
+                    ClientUtil.msgs(3,"video",mid) +
+                    ClientUtil.msgs(2,"location",mid) +
+                    ClientUtil.msgs(1,"link",mid);
+            System.out.println(param);
             try {
                 URL url = new URL("http://localhost:8080/wechat-simulator/menu/create");
                 HttpURLConnection connection = (HttpURLConnection)url.openConnection();

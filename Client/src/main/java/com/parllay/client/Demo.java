@@ -1,6 +1,4 @@
-package com.parllay.wechat;
-
-import com.parllay.util.ServiceUtil;
+package com.parllay.client;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -8,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Date;
 
 /**
  * Created by dushujian on 14-8-13.
@@ -19,10 +18,10 @@ public class Demo {
 //        String param = "{\"articles\":[{\"thumb_media_id\":\"1\",\"author\":\"xxx\",\"title\":\"happy\",\"content\":\"content\"},{\"thumb_media_id\":\"1\",\"author\":\"xxx\",\"title\":\"happy\",\"content\":\"content\"}]}";
 //        String param = "{\"group\":{\"name\":\"test\"}}";
 //        String param = "{\"touser\":[\"OPENID1\",\"OPENID2\"],\"mpnews\":{\"media_id\":\"123dsdajkasd231jhksad\"},\"msgtype\":\"mpnews\"}";
-        String param = "{\"button\":[{\"type\":\"click\",\"name\":\"今日歌曲\",\"key\":\"V1001_TODAY_MUSIC\"},{\"type\":\"click\",\"name\":\"歌手简介\",\"key\":\"V1001_TODAY_SINGER\"},{\"name\":\"菜单\",\"sub_button\":[{\"type\":\"view\",\"name\":\"搜索\",\"url\":\"http://www.soso.com/\"},{\"type\":\"view\",\"name\":\"视频\",\"url\":\"http://v.qq.com/\"},{\"type\":\"click\",\"name\":\"赞一下我们\",\"key\":\"V1001_GOOD\"}]}]}";
-//        URL url = new URL("http://localhost:8080/parllay-wechat-1.0-SNAPSHOT/cgi-bin/message/mass/sendall");
-//        URL url = new URL("http://localhost:8080/parllay-wechat-1.0-SNAPSHOT/cgi-bin/media/uploadnews?access_token=ACCESS_TOKEN");
-        URL url = new URL("http://localhost:8080/parllay-wechat-1.0-SNAPSHOT/cgi-bin/menu/create");
+        String param = "{\"button\":[{\"name\":\"今日歌曲\",\"key\":\"V1001_TODAY_MUSIC\"},{\"type\":\"click\",\"name\":\"歌手简介\",\"key\":\"V1001_TODAY_SINGER\"},{\"name\":\"菜单\",\"sub_button\":[{\"type\":\"view\",\"name\":\"搜索\",\"url\":\"http://www.soso.com/\"},{\"type\":\"view\",\"name\":\"视频\",\"url\":\"http://v.qq.com/\"},{\"type\":\"click\",\"name\":\"赞一下我们\",\"key\":\"V1001_GOOD\"}]}]}";
+//        URL url = new URL("http://121.40.138.37:8080/wechat-simulator/message/mass/sendall");
+//        URL url = new URL("http://121.40.138.37:8080/wechat-simulator/groups/create?access_token=ACCESS_TOKEN");
+        URL url = new URL("http://121.40.138.37:8080/wechat-simulator/menu/create");
         HttpURLConnection connection = (HttpURLConnection)url.openConnection();
         connection.setRequestMethod("POST");
         connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
@@ -46,6 +45,7 @@ public class Demo {
         while((line = rd.readLine()) != null) {
             System.out.println(line);
         }
+        System.out.println(new Date());
         rd.close();
 
     }

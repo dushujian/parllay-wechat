@@ -37,7 +37,7 @@ public class ClientUtil {
             }
         }
 
-        if(type.equals("iamge"))
+        if(type.equals("image"))
         {
             for(int i = 0; i < num; i++)
             {
@@ -45,7 +45,7 @@ public class ClientUtil {
             }
         }
 
-        if(type.equals("vioce"))
+        if(type.equals("voice"))
         {
             for(int i = 0; i < num; i++)
             {
