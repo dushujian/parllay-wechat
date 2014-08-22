@@ -2,7 +2,6 @@ package com.parllay.util;
 
 
 import com.parllay.client.EventMessage;
-import com.parllay.client.NormalMessage;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -27,60 +26,60 @@ public class ClientUtil {
     }
 
     //产生指定数量的普通消息
-    public  static String normalMsgs(int num, String type, Set mid)
-    {
-        StringBuilder nmes = new StringBuilder();
-        if(type.equals("text"))
-        {
-            for(int i = 0; i < num; i++)
-            {
-                nmes.append(NormalMessage.textMsg(RandomNum(mid)));
-            }
-        }
-
-        if(type.equals("image"))
-        {
-            for(int i = 0; i < num; i++)
-            {
-                nmes.append(NormalMessage.imgMsg(RandomNum(mid)));
-            }
-        }
-
-        if(type.equals("voice"))
-        {
-            for(int i = 0; i < num; i++)
-            {
-                nmes.append(NormalMessage.voiceMsg(RandomNum(mid)));
-            }
-        }
-
-        if (type.equals("video"))
-        {
-            for(int i = 0; i < num; i++)
-            {
-                nmes.append(NormalMessage.videoMsg(RandomNum(mid)));
-            }
-        }
-
-        if(type.equals("location"))
-        {
-            for(int i = 0; i < num; i++)
-            {
-                nmes.append(NormalMessage.locationMsg(RandomNum(mid)));
-            }
-        }
-
-        if(type.equals("link"))
-        {
-            for(int i = 0; i < num; i++)
-            {
-                nmes.append(NormalMessage.linkMsg(RandomNum(mid)));
-            }
-        }
-
-        return nmes.toString();
-
-    }
+//    public  static String normalMsgs(int num, String type, Set mid)
+//    {
+//        StringBuilder nmes = new StringBuilder();
+//        if(type.equals("text"))
+//        {
+//            for(int i = 0; i < num; i++)
+//            {
+//                nmes.append(NormalMessage.textMsg(RandomNum(mid)));
+//            }
+//        }
+//
+//        if(type.equals("image"))
+//        {
+//            for(int i = 0; i < num; i++)
+//            {
+//                nmes.append(NormalMessage.imgMsg(RandomNum(mid)));
+//            }
+//        }
+//
+//        if(type.equals("voice"))
+//        {
+//            for(int i = 0; i < num; i++)
+//            {
+//                nmes.append(NormalMessage.voiceMsg(RandomNum(mid)));
+//            }
+//        }
+//
+//        if (type.equals("video"))
+//        {
+//            for(int i = 0; i < num; i++)
+//            {
+//                nmes.append(NormalMessage.videoMsg(RandomNum(mid)));
+//            }
+//        }
+//
+//        if(type.equals("location"))
+//        {
+//            for(int i = 0; i < num; i++)
+//            {
+//                nmes.append(NormalMessage.locationMsg(RandomNum(mid)));
+//            }
+//        }
+//
+//        if(type.equals("link"))
+//        {
+//            for(int i = 0; i < num; i++)
+//            {
+//                nmes.append(NormalMessage.linkMsg(RandomNum(mid)));
+//            }
+//        }
+//
+//        return nmes.toString();
+//
+//    }
     //产生指定数量的事件消息
     public  static String eventMsgs(int num, String type)
     {
