@@ -12,7 +12,7 @@ import java.util.Timer;
 /**
  * Created by dushujian on 14-8-20.
  */
-public class TimingSend  {
+public class TimingSendNormal {
     static class MyTask extends java.util.TimerTask {
         public void run() {
             Set<Integer> mid = new HashSet<Integer>(); //存放不重复的媒体id
