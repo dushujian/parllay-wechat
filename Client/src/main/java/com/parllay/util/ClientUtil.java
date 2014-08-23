@@ -12,7 +12,7 @@ import java.util.Set;
  * Created by dushujian on 14-8-15.
  */
 public class ClientUtil {
-    //产生随机数
+    //产生不重复随机数
     public static Integer RandomNum(Set<Integer> mid)
     {
         int length = mid.size();
@@ -24,6 +24,14 @@ public class ClientUtil {
         }while(mid.size() == length);
         return  i;
     }
+
+    //产生固定范围随机数
+    public static Integer RangeRandom(int rang)
+    {
+        Random random = new Random();
+        return random.nextInt(rang);
+    }
+
 
     //产生指定数量的普通消息
 //    public  static String normalMsgs(int num, String type, Set mid)
@@ -81,65 +89,65 @@ public class ClientUtil {
 //
 //    }
     //产生指定数量的事件消息
-    public  static String eventMsgs(int num, String type)
-    {
-        StringBuilder emes = new StringBuilder();
-        if(type.equals("subscribe"))
-        {
-            for(int i = 0; i < num; i++)
-            {
-                emes.append(EventMessage.subscribe());
-            }
-        }
-        if(type.equals("unsubscribe"))
-        {
-            for(int i = 0; i < num; i++)
-            {
-                emes.append(EventMessage.unsubscribe());
-            }
-        }
-        if(type.equals("scanUnsub"))
-        {
-            for(int i = 0; i < num; i++)
-            {
-                emes.append(EventMessage.scanUnsub());
-            }
-        }
-        if(type.equals("scan"))
-        {
-            for(int i = 0; i < num; i++)
-            {
-                emes.append(EventMessage.scan());
-            }
-        }
-        if(type.equals("location"))
-        {
-            for(int i = 0; i < num; i++)
-            {
-                emes.append(EventMessage.location());
-            }
-        }
-        if(type.equals("click"))
-        {
-            for(int i = 0; i < num; i++)
-            {
-                emes.append(EventMessage.click());
-            }
-        }
-        if(type.equals("view"))
-        {
-            for(int i = 0; i < num; i++)
-            {
-                emes.append(EventMessage.view());
-            }
-        }
-        return emes.toString();
-    }
-    //当前时间
-    public static String getStringDateShort() {
-        Date currentTime = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String dateString = formatter.format(currentTime);
-        return dateString;
-    }
+//    public  static String eventMsgs(int num, String type)
+//    {
+//        StringBuilder emes = new StringBuilder();
+//        if(type.equals("subscribe"))
+//        {
+//            for(int i = 0; i < num; i++)
+//            {
+//                emes.append(EventMessage.subscribe());
+//            }
+//        }
+//        if(type.equals("unsubscribe"))
+//        {
+//            for(int i = 0; i < num; i++)
+//            {
+//                emes.append(EventMessage.unsubscribe());
+//            }
+//        }
+//        if(type.equals("scanUnsub"))
+//        {
+//            for(int i = 0; i < num; i++)
+//            {
+//                emes.append(EventMessage.scanUnsub());
+//            }
+//        }
+//        if(type.equals("scan"))
+//        {
+//            for(int i = 0; i < num; i++)
+//            {
+//                emes.append(EventMessage.scan());
+//            }
+//        }
+//        if(type.equals("location"))
+//        {
+//            for(int i = 0; i < num; i++)
+//            {
+//                emes.append(EventMessage.location());
+//            }
+//        }
+//        if(type.equals("click"))
+//        {
+//            for(int i = 0; i < num; i++)
+//            {
+//                emes.append(EventMessage.click());
+//            }
+//        }
+//        if(type.equals("view"))
+//        {
+//            for(int i = 0; i < num; i++)
+//            {
+//                emes.append(EventMessage.view());
+//            }
+//        }
+//        return emes.toString();
+//    }
+//    //当前时间
+//    public static String getStringDateShort() {
+//        Date currentTime = new Date();
+//        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//        String dateString = formatter.format(currentTime);
+//        return dateString;
+//    }
 }
