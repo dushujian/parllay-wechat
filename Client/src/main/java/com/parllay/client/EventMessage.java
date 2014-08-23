@@ -1,88 +1,90 @@
 package com.parllay.client;
 
-import com.parllay.util.ClientUtil;
+import com.parllay.util.Constants;
+
+import java.util.Date;
 
 /**
  * Created by dushujian on 14-8-22.
  */
 public class EventMessage {
-    public static String subscribe()
+    public static String subscribe(int userid)
     {
-        return "<xml>\n" +
-                "<ToUserName><![CDATA[toUser]]></ToUserName>\n" +
-                "<FromUserName><![CDATA[FromUser]]></FromUserName>\n" +
-                "<CreateTime>" + ClientUtil.getStringDateShort() + "</CreateTime>\n" +
-                "<MsgType><![CDATA[event]]></MsgType>\n" +
-                "<Event><![CDATA[subscribe]]></Event>\n" +
-                "</xml>\n";
+        return "<xml>" +
+                "<ToUserName><![CDATA[parllay]]></ToUserName>" +
+                "<FromUserName><![CDATA["+ Constants.fromUsers[userid]+"]]></FromUserName>" +
+                "<CreateTime>" + new Date().getTime() + "</CreateTime>" +
+                "<MsgType><![CDATA[event]]></MsgType>" +
+                "<Event><![CDATA[subscribe]]></Event>" +
+                "</xml>";
     }
-    public static String unsubscribe()
+    public static String unsubscribe(int userid)
     {
-        return "<xml>\n" +
-                "<ToUserName><![CDATA[toUser]]></ToUserName>\n" +
-                "<FromUserName><![CDATA[FromUser]]></FromUserName>\n" +
-                "<CreateTime>" + ClientUtil.getStringDateShort() + "</CreateTime>\n" +
-                "<MsgType><![CDATA[event]]></MsgType>\n" +
-                "<Event><![CDATA[unsubscribe]]></Event>\n" +
-                "</xml>\n";
+        return "<xml>" +
+                "<ToUserName><![CDATA[parllay]]></ToUserName>" +
+                "<FromUserName><![CDATA["+ Constants.fromUsers[userid]+"]]></FromUserName>" +
+                "<CreateTime>" + new Date().getTime() + "</CreateTime>" +
+                "<MsgType><![CDATA[event]]></MsgType>" +
+                "<Event><![CDATA[unsubscribe]]></Event>" +
+                "</xml>";
     }
-    public static String scanUnsub()
+    public static String scanUnsub(int userid,int eventKeyid)
     {
-        return "<xml><ToUserName><![CDATA[toUser]]></ToUserName>\n" +
-                "<FromUserName><![CDATA[FromUser]]></FromUserName>\n" +
-                "<CreateTime>" + ClientUtil.getStringDateShort() + "</CreateTime>\n" +
-                "<MsgType><![CDATA[event]]></MsgType>\n" +
-                "<Event><![CDATA[subscribe]]></Event>\n" +
-                "<EventKey><![CDATA[qrscene_123123]]></EventKey>\n" +
-                "<Ticket><![CDATA[TICKET]]></Ticket>\n" +
-                "</xml>\n";
+        return "<xml><ToUserName><![CDATA[parllay]]></ToUserName>" +
+                "<FromUserName><![CDATA["+ Constants.fromUsers[userid]+"]]></FromUserName>" +
+                "<CreateTime>" + new Date().getTime() + "</CreateTime>" +
+                "<MsgType><![CDATA[event]]></MsgType>" +
+                "<Event><![CDATA[subscribe]]></Event>" +
+                "<EventKey><![CDATA[qrscene_"+ eventKeyid +"]]></EventKey>" +
+                "<Ticket><![CDATA[TICKET]]></Ticket>" +
+                "</xml>";
     }
-    public static String scan()
+    public static String scan(int userid, int eventKeyid)
     {
-        return "<xml>\n" +
-                "<ToUserName><![CDATA[toUser]]></ToUserName>\n" +
-                "<FromUserName><![CDATA[FromUser]]></FromUserName>\n" +
-                "<CreateTime>" + ClientUtil.getStringDateShort() + "</CreateTime>\n" +
-                "<MsgType><![CDATA[event]]></MsgType>\n" +
-                "<Event><![CDATA[SCAN]]></Event>\n" +
-                "<EventKey><![CDATA[SCENE_VALUE]]></EventKey>\n" +
-                "<Ticket><![CDATA[TICKET]]></Ticket>\n" +
-                "</xml>\n";
+        return "<xml>" +
+                "<ToUserName><![CDATA[parllay]]></ToUserName>" +
+                "<FromUserName><![CDATA["+ Constants.fromUsers[userid]+"]]></FromUserName>" +
+                "<CreateTime>" + new Date().getTime() + "</CreateTime>" +
+                "<MsgType><![CDATA[event]]></MsgType>" +
+                "<Event><![CDATA[SCAN]]></Event>" +
+                "<EventKey><![CDATA["+ eventKeyid +"]]></EventKey>" +
+                "<Ticket><![CDATA[TICKET]]></Ticket>" +
+                "</xml>";
     }
 
-    public static String location()
+    public static String location(int userid)
     {
-        return "<xml>\n" +
-                "<ToUserName><![CDATA[toUser]]></ToUserName>\n" +
-                "<FromUserName><![CDATA[fromUser]]></FromUserName>\n" +
-                "<CreateTime>" + ClientUtil.getStringDateShort() + "</CreateTime>\n" +
-                "<MsgType><![CDATA[event]]></MsgType>\n" +
-                "<Event><![CDATA[LOCATION]]></Event>\n" +
-                "<Latitude>23.137466</Latitude>\n" +
-                "<Longitude>113.352425</Longitude>\n" +
-                "<Precision>119.385040</Precision>\n" +
-                "</xml>\n";
+        return "<xml>" +
+                "<ToUserName><![CDATA[parllay]]></ToUserName>" +
+                "<FromUserName><![CDATA["+ Constants.fromUsers[userid]+"]]></FromUserName>" +
+                "<CreateTime>" + new Date().getTime() + "</CreateTime>" +
+                "<MsgType><![CDATA[event]]></MsgType>" +
+                "<Event><![CDATA[LOCATION]]></Event>" +
+                "<Latitude>23.137466</Latitude>" +
+                "<Longitude>113.352425</Longitude>" +
+                "<Precision>119.385040</Precision>" +
+                "</xml>";
     }
-    public static String click()
+    public static String click(int userid,int clickEventid)
     {
-        return "<xml>\n" +
-                "<ToUserName><![CDATA[toUser]]></ToUserName>\n" +
-                "<FromUserName><![CDATA[FromUser]]></FromUserName>\n" +
-                "<CreateTime>" + ClientUtil.getStringDateShort() + "</CreateTime>\n" +
-                "<MsgType><![CDATA[event]]></MsgType>\n" +
-                "<Event><![CDATA[CLICK]]></Event>\n" +
-                "<EventKey><![CDATA[EVENTKEY]]></EventKey>\n" +
-                "</xml>\n";
+        return "<xml>" +
+                "<ToUserName><![CDATA[parllay]]></ToUserName>" +
+                "<FromUserName><![CDATA["+ Constants.fromUsers[userid]+"]]></FromUserName>" +
+                "<CreateTime>" + new Date().getTime() + "</CreateTime>" +
+                "<MsgType><![CDATA[event]]></MsgType>" +
+                "<Event><![CDATA[CLICK]]></Event>" +
+                "<EventKey><![CDATA["+Constants.ClickEventKeys[clickEventid]+"]]></EventKey>" +
+                "</xml>";
     }
-    public static String view()
+    public static String view(int userid, int viewEventid)
     {
-        return "<xml>\n" +
-                "<ToUserName><![CDATA[toUser]]></ToUserName>\n" +
-                "<FromUserName><![CDATA[FromUser]]></FromUserName>\n" +
-                "<CreateTime>" + ClientUtil.getStringDateShort() + "</CreateTime>\n" +
-                "<MsgType><![CDATA[event]]></MsgType>\n" +
-                "<Event><![CDATA[VIEW]]></Event>\n" +
-                "<EventKey><![CDATA[www.qq.com]]></EventKey>\n" +
-                "</xml>\n";
+        return "<xml>" +
+                "<ToUserName><![CDATA[parllay]]></ToUserName>" +
+                "<FromUserName><![CDATA["+ Constants.fromUsers[userid]+"]]></FromUserName>" +
+                "<CreateTime>" + new Date().getTime() + "</CreateTime>" +
+                "<MsgType><![CDATA[event]]></MsgType>" +
+                "<Event><![CDATA[VIEW]]></Event>" +
+                "<EventKey><![CDATA["+Constants.ViewEventKeys[viewEventid]+"]]></EventKey>" +
+                "</xml>";
     }
 }
