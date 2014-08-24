@@ -1,5 +1,6 @@
 package com.parllay.client;
 
+import com.parllay.util.ClientUtil;
 import com.parllay.util.Constants;
 
 import java.util.Date;
@@ -13,7 +14,7 @@ public class EventMessage {
         return "<xml>" +
                 "<ToUserName><![CDATA[parllay]]></ToUserName>" +
                 "<FromUserName><![CDATA["+ Constants.fromUsers[userid]+"]]></FromUserName>" +
-                "<CreateTime>" + new Date().getTime() + "</CreateTime>" +
+                "<CreateTime>" + ClientUtil.getTime() + "</CreateTime>" +
                 "<MsgType><![CDATA[event]]></MsgType>" +
                 "<Event><![CDATA[subscribe]]></Event>" +
                 "</xml>";
@@ -23,7 +24,7 @@ public class EventMessage {
         return "<xml>" +
                 "<ToUserName><![CDATA[parllay]]></ToUserName>" +
                 "<FromUserName><![CDATA["+ Constants.fromUsers[userid]+"]]></FromUserName>" +
-                "<CreateTime>" + new Date().getTime() + "</CreateTime>" +
+                "<CreateTime>" + ClientUtil.getTime() + "</CreateTime>" +
                 "<MsgType><![CDATA[event]]></MsgType>" +
                 "<Event><![CDATA[unsubscribe]]></Event>" +
                 "</xml>";
@@ -32,7 +33,7 @@ public class EventMessage {
     {
         return "<xml><ToUserName><![CDATA[parllay]]></ToUserName>" +
                 "<FromUserName><![CDATA["+ Constants.fromUsers[userid]+"]]></FromUserName>" +
-                "<CreateTime>" + new Date().getTime() + "</CreateTime>" +
+                "<CreateTime>" + ClientUtil.getTime() + "</CreateTime>" +
                 "<MsgType><![CDATA[event]]></MsgType>" +
                 "<Event><![CDATA[subscribe]]></Event>" +
                 "<EventKey><![CDATA[qrscene_"+ eventKeyid +"]]></EventKey>" +
@@ -44,7 +45,7 @@ public class EventMessage {
         return "<xml>" +
                 "<ToUserName><![CDATA[parllay]]></ToUserName>" +
                 "<FromUserName><![CDATA["+ Constants.fromUsers[userid]+"]]></FromUserName>" +
-                "<CreateTime>" + new Date().getTime() + "</CreateTime>" +
+                "<CreateTime>" + ClientUtil.getTime() + "</CreateTime>" +
                 "<MsgType><![CDATA[event]]></MsgType>" +
                 "<Event><![CDATA[SCAN]]></Event>" +
                 "<EventKey><![CDATA["+ eventKeyid +"]]></EventKey>" +
@@ -57,7 +58,7 @@ public class EventMessage {
         return "<xml>" +
                 "<ToUserName><![CDATA[parllay]]></ToUserName>" +
                 "<FromUserName><![CDATA["+ Constants.fromUsers[userid]+"]]></FromUserName>" +
-                "<CreateTime>" + new Date().getTime() + "</CreateTime>" +
+                "<CreateTime>" + ClientUtil.getTime() + "</CreateTime>" +
                 "<MsgType><![CDATA[event]]></MsgType>" +
                 "<Event><![CDATA[LOCATION]]></Event>" +
                 "<Latitude>23.137466</Latitude>" +
@@ -70,7 +71,7 @@ public class EventMessage {
         return "<xml>" +
                 "<ToUserName><![CDATA[parllay]]></ToUserName>" +
                 "<FromUserName><![CDATA["+ Constants.fromUsers[userid]+"]]></FromUserName>" +
-                "<CreateTime>" + new Date().getTime() + "</CreateTime>" +
+                "<CreateTime>" + ClientUtil.getTime() + "</CreateTime>" +
                 "<MsgType><![CDATA[event]]></MsgType>" +
                 "<Event><![CDATA[CLICK]]></Event>" +
                 "<EventKey><![CDATA["+Constants.ClickEventKeys[clickEventid]+"]]></EventKey>" +
@@ -81,7 +82,7 @@ public class EventMessage {
         return "<xml>" +
                 "<ToUserName><![CDATA[parllay]]></ToUserName>" +
                 "<FromUserName><![CDATA["+ Constants.fromUsers[userid]+"]]></FromUserName>" +
-                "<CreateTime>" + new Date().getTime() + "</CreateTime>" +
+                "<CreateTime>" + ClientUtil.getTime() + "</CreateTime>" +
                 "<MsgType><![CDATA[event]]></MsgType>" +
                 "<Event><![CDATA[VIEW]]></Event>" +
                 "<EventKey><![CDATA["+Constants.ViewEventKeys[viewEventid]+"]]></EventKey>" +

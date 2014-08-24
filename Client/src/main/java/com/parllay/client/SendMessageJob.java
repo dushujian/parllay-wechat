@@ -143,7 +143,6 @@ public class SendMessageJob {
 
         // send normal messages
         Set<Integer> mid = new HashSet<Integer>(); //存放不重复的媒体id
-        System.out.println("开始");
         param = "";
         for(int i = 0; i < 21; i++)
         {
@@ -169,7 +168,7 @@ public class SendMessageJob {
             }
             else
             {
-                param = NormalMessage.linkMsg(ClientUtil.RandomNum(mid),ClientUtil.RangeRandom(60));
+                param = NormalMessage.linkMsg(ClientUtil.RandomNum(mid),ClientUtil.RangeRandom(60),ClientUtil.RangeRandom(5));
             }
             System.out.println(param);
             try {
